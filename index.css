@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Popins', sans-serif;
+   
+   
+}
+
+/* div{
+    border: 1px solid black;
+} */
+
+body{
+    background-color: black;
+    color: white;
+}
+
+
+.container{
+    width: 90%;
+    max-width: 450px;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 100px auto 0;
+    background: linear-gradient(500deg, #00bfff, #35c718)
+}
+
+
+.searchBox{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.querySearchBox{
+    height:60px;
+    font-size: 22px;
+    padding: 20px;
+    outline: 0;
+    border: 0;
+    border-radius: 50px;
+    flex:1;
+}
+
+
+.searchBox button{
+    margin-left: 10px;
+    height: 60px;
+    width:60px;
+    border-radius: 50%;
+    border: 0;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+.searchBox img {
+    height: 20px;
+    /* border: 1px solid red; */
+}
+
+
+
+
+
+.partTwoOfDOM
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.tempText{
+    font-size: 60px;
+}
+
+ .cityNameText {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.humidity_wind{
+    display: flex;
+    justify-content: space-around;
+}
+
+.humidity_wind img{
+    width: 50px;
+}
+
+.humidity{
+    display: flex;
+}
+
+.humidityText{
+    font-size: 22px;
+    margin-left: 5px;
+    display: flex;
+    align-items:start ;
+    flex-direction: column;
+justify-content: space-between;
+}
+
+.wind{
+    display: flex;
+}
+
+.windText{
+    font-size: 22px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+

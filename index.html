@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="index.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div class="container">
+        
+
+        <div class="searchBox">
+            <form action="#" >
+            <input type="text" id="cityName" class="querySearchBox" placeholder="Enter city name?" />
+
+            <button id="searchButton"> <img src="./images/search.png" /></button>
+        </form>
+
+        </div>
+
+
+        <div class="partTwoOfDOM">
+
+        <div class="weatherImage">
+            <img id="weatherImage" src="./images/clear.png" />
+        </div>
+
+
+        <p class="tempText"> --</p>
+        <p class="cityNameText"> ----------</p>
+
+
+        <div class="humidity_wind">
+
+                <div class="humidity">
+
+                    <img src="./images/humidity.png" alt="">
+
+                    <div class="humidityText">
+                        <h4 class="humidityValue"> -------</h4>
+                        <h6> Humidity</h6>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="wind">
+
+                    <img src="./images/wind.png" alt="">
+
+                    <div class="windText">
+                        <h4 class="windSpeed"> -------- KM/h </h4>
+                        <h6> Wind</h6>
+                    </div>
+
+                </div>
+
+        </div>
+
+        </div>
+
+    </div>
+    
+
+    <script>
+
+        const apiKey = "6dde83bd33614d298b85fec469be26f2";
+        const weatherImage  = document.getElementById("weatherImage");
+
+
+        async function checkWeather(cityName){
+    
+            var city = cityName;
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+
+            
+            const response  = await fetch(apiUrl);
+            const data = await response.json();
+            
+            console.log(data);
+
+
+            document.querySelector(".cityNameText").innerHTML = data.name +", " + data.sys.country;
+            document.querySelector(".tempText").innerHTML = data.main.temp +"°c";
+            document.querySelector(".windSpeed").innerHTML = data.wind.speed +" km/h";
+            document.querySelector(".humidityValue").innerHTML = data.main.humidity +" %";
+
+
+
+           if(data.weather[0].main == "Clouds")
+           weatherImage.src = "./images/clouds.png";
+            else if(data.weather[0].main == "Clear")
+           weatherImage.src = "./images/clear.png";
+           else if(data.weather[0].main == "Drizzle")
+           weatherImage.src = "./images/drizzle.png";
+           else if(data.weather[0].main == "Mist")
+           weatherImage.src = "./images/mist.png";
+           else if(data.weather[0].main == "Rain")
+           weatherImage.src = "./images/rain.png";
+           else if(data.weather[0].main == "Snow")
+           weatherImage.src = "./images/snow.png";
+           
+
+        }
+
+
+
+        //WHEN APP STARTS
+
+        checkWeather("srinagar");
+
+
+        document.getElementById('searchButton').addEventListener("click",()=>{
+
+            const cityName = document.getElementById('cityName').value;
+            checkWeather(cityName);
+        
+        });
+       
+
+    </script>
+
+</body>
+</html>
